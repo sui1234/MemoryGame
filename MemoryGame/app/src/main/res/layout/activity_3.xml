@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity3"
+    android:background="@drawable/background">>
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_back_button"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp"
+        android:background="#00000000"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="272dp"
+        android:layout_height="85dp"
+        android:src="@drawable/delfiner"
+        tools:layout_editor_absoluteX="69dp"
+        tools:layout_editor_absoluteY="122dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="109dp"
+        android:layout_height="67dp"
+        android:background="@drawable/round_button"
+        android:text="Level 1"
+        android:fontFamily="@font/damion"
+        android:textSize="20dp"
+        tools:layout_editor_absoluteX="65dp"
+        tools:layout_editor_absoluteY="316dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="109dp"
+        android:layout_height="67dp"
+        android:background="@drawable/round_button"
+        android:text="Level 2"
+        android:fontFamily="@font/damion"
+        android:textSize="20dp"
+        tools:layout_editor_absoluteX="246dp"
+        tools:layout_editor_absoluteY="316dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="109dp"
+        android:layout_height="67dp"
+        android:background="@drawable/round_button"
+        android:text="Level 3"
+        android:fontFamily="@font/damion"
+        android:textSize="20dp"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="482dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="109dp"
+        android:layout_height="67dp"
+        android:background="@drawable/round_button"
+        android:text="Level 4"
+        android:fontFamily="@font/damion"
+        android:textSize="20dp"
+        tools:layout_editor_absoluteX="246dp"
+        tools:layout_editor_absoluteY="482dp"
+        tools:ignore="MissingConstraints" />
+</android.support.constraint.ConstraintLayout>
