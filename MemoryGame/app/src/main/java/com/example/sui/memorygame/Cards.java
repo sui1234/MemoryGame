@@ -1,20 +1,26 @@
 package com.example.sui.memorygame;
 
+import android.media.Image;
+import android.widget.Button;
+import android.widget.ImageView;
+
 import java.util.ArrayList;
 import java.util.Random;
 
 public class Cards {
 
-    private static int Row = -1;
-    private static int Col = -1;
+    private ImageView backImage;
+    private ImageView frontImage;
 
-    private int [][] cards = new int[2][2];
-    ArrayList<Integer> list = new ArrayList<Integer>();
+    public ImageView getFrontImage() {
+        return frontImage;
+    }
 
+    public void setFrontImage(ImageView frontImage) {
+        this.frontImage = frontImage;
+    }
 
-
-
-    private void loadCards(){
+    /*private void loadCards(){
 
             int size = Row*Col;
 
@@ -37,5 +43,7 @@ public class Cards {
 
 
             }
-        }
+        }*/
+
+
 }
