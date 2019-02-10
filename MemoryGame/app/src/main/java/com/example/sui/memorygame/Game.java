@@ -17,11 +17,10 @@ import java.util.List;
 public class Game extends AppCompatImageView {
 
 
-
     private ImageView showImage1, showImage2, showImage3, showImage4;
 
-    Integer[] cardsArray = {1, 2, 3, 4};
     int image1, image2, image3, image4;
+    int[] imageArray = null;             // picture library
 
     int firstCard;
     int secondCard;
@@ -30,7 +29,9 @@ public class Game extends AppCompatImageView {
     int clickedSecondPos;
 
     int number = 1;
-    int[] imageArray = null;
+
+    Cards card = new Cards();
+
 
     public Game(Context context, ImageView[] showImage) {
         super(context);
@@ -51,15 +52,11 @@ public class Game extends AppCompatImageView {
         init();
     }
 
-
-
     private void init() {
 
-        //backImages = getResources().getDrawable(R.drawable.pink_circle);
     }
 
-
-    public void play(){
+    public void play() {
 
         showImage1.setTag("0");
         showImage2.setTag("1");
@@ -67,9 +64,9 @@ public class Game extends AppCompatImageView {
         showImage4.setTag("3");
 
         frontOfCardsResources();
-        Collections.shuffle(Arrays.asList(cardsArray));
+        card.shuffle();
 
-        imageArray = new int[]{image1, image2, image3, image4};
+        imageArray = new int[]{image1,image2,image3,image4};
 
         showImage1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -95,28 +92,32 @@ public class Game extends AppCompatImageView {
                 doStuff(showImage4, whichCardIsClicked);
             }
         });
+
+
     }
 
     private void doStuff(ImageView showImage, int clickedCardPos) {
 
-        if (cardsArray[clickedCardPos] == 1) {
+        int whichCard = card.getCardsArray()[clickedCardPos];
+
+        if (whichCard == 1) {
             showImage.setImageResource(imageArray[0]);
-        } else if (cardsArray[clickedCardPos] == 2) {
+        } else if (whichCard == 2) {
             showImage.setImageResource(imageArray[1]);
-        } else if (cardsArray[clickedCardPos] == 3) {
+        } else if (whichCard == 3) {
             showImage.setImageResource(imageArray[2]);
-        } else if (cardsArray[clickedCardPos] == 4) {
+        } else if (whichCard == 4) {
             showImage.setImageResource(imageArray[3]);
         }
 
         if (number == 1) {
-            firstCard = cardsArray[clickedCardPos];
+            firstCard = whichCard ;
             clickedFirstPos = clickedCardPos;
             showImage.setEnabled(false);
             number = 2;
 
         } else if (number == 2) {
-            secondCard = cardsArray[clickedCardPos];
+            secondCard = whichCard ;
 
             clickedSecondPos = clickedCardPos;
             showImage1.setEnabled(false);
@@ -124,27 +125,26 @@ public class Game extends AppCompatImageView {
             showImage3.setEnabled(false);
             showImage4.setEnabled(false);
             number = 1;
-        }
 
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                checkCard();
-            }
-        }, 1500);
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    checkCard();
+                }
+            }, 1000);
+        }
     }
 
-    private void frontOfCardsResources() {
+    public void frontOfCardsResources() {
         image1 = R.drawable.fish;
         image2 = R.drawable.fish;
         image3 = R.drawable.starfish;
         image4 = R.drawable.starfish;
 
     }
-
     private void checkCard() {
-        if (imageArray[firstCard-1] == imageArray[secondCard-1]) {
+        if (imageArray[firstCard - 1] == imageArray[secondCard - 1]) {
             if (clickedFirstPos == 0)
                 showImage1.setVisibility(View.INVISIBLE);
             else if (clickedFirstPos == 1)
