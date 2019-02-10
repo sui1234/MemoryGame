@@ -1,27 +1,45 @@
 package com.example.sui.memorygame;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.os.Handler;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class Game extends AppCompatImageView {
 
-    private Drawable backImages;
-    private List<Drawable> images;
-
-    private boolean isImageClicked = false;
 
 
+    private ImageView showImage1, showImage2, showImage3, showImage4;
 
-    public Game(Context context) {
+    Integer[] cardsArray = {1, 2, 3, 4};
+    int image1, image2, image3, image4;
+
+    int firstCard;
+    int secondCard;
+
+    int clickedFirstPos;
+    int clickedSecondPos;
+
+    int number = 1;
+    int[] imageArray = null;
+
+    public Game(Context context, ImageView[] showImage) {
         super(context);
-        init();
+        this.showImage1 = showImage[0];
+        this.showImage2 = showImage[1];
+        this.showImage3 = showImage[2];
+        this.showImage4 = showImage[3];
     }
+
 
     public Game(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -33,23 +51,132 @@ public class Game extends AppCompatImageView {
         init();
     }
 
+
+
     private void init() {
 
-        backImages = getResources().getDrawable(R.drawable.pink_circle);
+        //backImages = getResources().getDrawable(R.drawable.pink_circle);
     }
 
 
-    public void isMatched(){
+    public void play(){
+
+        showImage1.setTag("0");
+        showImage2.setTag("1");
+        showImage3.setTag("2");
+        showImage4.setTag("3");
+
+        frontOfCardsResources();
+        Collections.shuffle(Arrays.asList(cardsArray));
+
+        imageArray = new int[]{image1, image2, image3, image4};
+
+        showImage1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                int whichCardIsClicked = Integer.parseInt((String) v.getTag());
+                doStuff(showImage1, whichCardIsClicked);
+            }
+        });
+        showImage2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                int whichCardIsClicked = Integer.parseInt((String) v.getTag());
+                doStuff(showImage2, whichCardIsClicked);
+            }
+        });
+        showImage3.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                int whichCardIsClicked = Integer.parseInt((String) v.getTag());
+                doStuff(showImage3, whichCardIsClicked);
+            }
+        });
+        showImage4.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                int whichCardIsClicked = Integer.parseInt((String) v.getTag());
+                doStuff(showImage4, whichCardIsClicked);
+            }
+        });
+    }
+
+    private void doStuff(ImageView showImage, int clickedCardPos) {
+
+        if (cardsArray[clickedCardPos] == 1) {
+            showImage.setImageResource(imageArray[0]);
+        } else if (cardsArray[clickedCardPos] == 2) {
+            showImage.setImageResource(imageArray[1]);
+        } else if (cardsArray[clickedCardPos] == 3) {
+            showImage.setImageResource(imageArray[2]);
+        } else if (cardsArray[clickedCardPos] == 4) {
+            showImage.setImageResource(imageArray[3]);
+        }
+
+        if (number == 1) {
+            firstCard = cardsArray[clickedCardPos];
+            clickedFirstPos = clickedCardPos;
+            showImage.setEnabled(false);
+            number = 2;
+
+        } else if (number == 2) {
+            secondCard = cardsArray[clickedCardPos];
+
+            clickedSecondPos = clickedCardPos;
+            showImage1.setEnabled(false);
+            showImage2.setEnabled(false);
+            showImage3.setEnabled(false);
+            showImage4.setEnabled(false);
+            number = 1;
+        }
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                checkCard();
+            }
+        }, 1500);
+    }
+
+    private void frontOfCardsResources() {
+        image1 = R.drawable.fish;
+        image2 = R.drawable.fish;
+        image3 = R.drawable.starfish;
+        image4 = R.drawable.starfish;
 
     }
 
+    private void checkCard() {
+        if (imageArray[firstCard-1] == imageArray[secondCard-1]) {
+            if (clickedFirstPos == 0)
+                showImage1.setVisibility(View.INVISIBLE);
+            else if (clickedFirstPos == 1)
+                showImage2.setVisibility(View.INVISIBLE);
+            else if (clickedFirstPos == 2)
+                showImage3.setVisibility(View.INVISIBLE);
+            else if (clickedFirstPos == 3)
+                showImage4.setVisibility(View.INVISIBLE);
 
+            if (clickedSecondPos == 0)
+                showImage1.setVisibility(View.INVISIBLE);
+            else if (clickedSecondPos == 1)
+                showImage2.setVisibility(View.INVISIBLE);
+            else if (clickedSecondPos == 2)
+                showImage3.setVisibility(View.INVISIBLE);
+            else if (clickedSecondPos == 3)
+                showImage4.setVisibility(View.INVISIBLE);
+        } else {
+            showImage1.setImageResource(R.drawable.circle_button);
+            showImage2.setImageResource(R.drawable.circle_button);
+            showImage3.setImageResource(R.drawable.circle_button);
+            showImage4.setImageResource(R.drawable.circle_button);
+        }
 
-    public void ifCardCanBeClicked(){
-
-
+        showImage1.setEnabled(true);
+        showImage2.setEnabled(true);
+        showImage3.setEnabled(true);
+        showImage4.setEnabled(true);
     }
 
+
+}
 
 
    /* public void loadImages() {
@@ -64,6 +191,6 @@ public class Game extends AppCompatImageView {
     }*/
 
 
-}
+
 
 
