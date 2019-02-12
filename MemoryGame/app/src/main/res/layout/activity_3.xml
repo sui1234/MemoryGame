@@ -58,7 +58,6 @@
         android:text="@string/level_button_1"
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/button_level_3"
-        app:layout_constraintEnd_toStartOf="@+id/button3"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

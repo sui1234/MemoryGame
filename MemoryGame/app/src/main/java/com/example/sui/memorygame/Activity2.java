@@ -46,4 +46,3 @@ public class Activity2 extends AppCompatActivity {
 
 
 }
-

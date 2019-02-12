@@ -28,7 +28,7 @@ public class Activity4 extends AppCompatActivity {
         ImageView [] showImageArray = {findViewById(R.id.image_piece1),findViewById(R.id.image_piece2),
                 findViewById(R.id.image_piece3),findViewById(R.id.image_piece4)};
 
-        Game game = new Game(getApplicationContext(), showImageArray);
+        GameSea1 game = new GameSea1(getApplicationContext(), showImageArray);
 
         game.play();
 

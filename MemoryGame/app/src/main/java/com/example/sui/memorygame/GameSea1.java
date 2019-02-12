@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -14,7 +15,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class Game extends AppCompatImageView {
+public class GameSea1 extends AppCompatImageView {
 
 
     private ImageView showImage1, showImage2, showImage3, showImage4;
@@ -29,11 +30,10 @@ public class Game extends AppCompatImageView {
     int clickedSecondPos;
 
     int number = 1;
+    CardsSea1 card = new CardsSea1();
 
-    Cards card = new Cards();
 
-
-    public Game(Context context, ImageView[] showImage) {
+    public GameSea1(Context context, ImageView[] showImage) {
         super(context);
         this.showImage1 = showImage[0];
         this.showImage2 = showImage[1];
@@ -41,20 +41,14 @@ public class Game extends AppCompatImageView {
         this.showImage4 = showImage[3];
     }
 
-
-    public Game(Context context, AttributeSet attrs) {
+    public GameSea1(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
     }
 
-    public Game(Context context, AttributeSet attrs, int defStyleAttr) {
+    public GameSea1(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
     }
 
-    private void init() {
-
-    }
 
     public void play() {
 
@@ -66,7 +60,7 @@ public class Game extends AppCompatImageView {
         frontOfCardsResources();
         card.shuffle();
 
-        imageArray = new int[]{image1,image2,image3,image4};
+        imageArray = new int[]{image1, image2, image3, image4};
 
         showImage1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -96,7 +90,7 @@ public class Game extends AppCompatImageView {
 
     }
 
-    private void doStuff(ImageView showImage, int clickedCardPos) {
+    public void doStuff(ImageView showImage, int clickedCardPos) {
 
         int whichCard = card.getCardsArray()[clickedCardPos];
 
@@ -111,13 +105,13 @@ public class Game extends AppCompatImageView {
         }
 
         if (number == 1) {
-            firstCard = whichCard ;
+            firstCard = whichCard;
             clickedFirstPos = clickedCardPos;
             showImage.setEnabled(false);
             number = 2;
 
         } else if (number == 2) {
-            secondCard = whichCard ;
+            secondCard = whichCard;
 
             clickedSecondPos = clickedCardPos;
             showImage1.setEnabled(false);
@@ -143,7 +137,8 @@ public class Game extends AppCompatImageView {
         image4 = R.drawable.starfish;
 
     }
-    private void checkCard() {
+
+    public void checkCard() {
         if (imageArray[firstCard - 1] == imageArray[secondCard - 1]) {
             if (clickedFirstPos == 0)
                 showImage1.setVisibility(View.INVISIBLE);
@@ -173,9 +168,19 @@ public class Game extends AppCompatImageView {
         showImage2.setEnabled(true);
         showImage3.setEnabled(true);
         showImage4.setEnabled(true);
+
+        checkBoard();
     }
 
+    public void checkBoard() {
+        if (showImage1.getVisibility() == View.INVISIBLE
+                && showImage2.getVisibility() == View.INVISIBLE
+                && showImage3.getVisibility() == View.INVISIBLE
+                && showImage4.getVisibility() == View.INVISIBLE) {
 
+            Log.d("GameSea1","det funkar!");
+        }
+    }
 }
 
 

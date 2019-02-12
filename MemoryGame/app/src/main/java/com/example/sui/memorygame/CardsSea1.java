@@ -9,13 +9,15 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Random;
 
-public class Cards {
+public class CardsSea1 {
 
     Integer[] cardsArray = {1, 2, 3, 4};   // cards on the board
+
 
     public Integer[] getCardsArray() {
         return cardsArray;
     }
+
 
     public void shuffle() {
         Collections.shuffle(Arrays.asList(cardsArray));
