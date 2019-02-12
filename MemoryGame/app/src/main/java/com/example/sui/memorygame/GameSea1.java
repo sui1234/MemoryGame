@@ -56,36 +56,34 @@ public class GameSea1 extends AppCompatImageView {
 
         image.getImageArray();
 
-            showImage1.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    int whichCardIsClicked = Integer.parseInt((String) v.getTag());
-                    doStuff(showImage1, whichCardIsClicked);
+        showImage1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                int whichCardIsClicked = Integer.parseInt((String) v.getTag());
+                doStuff(showImage1, whichCardIsClicked);
 
-                }
-            });
-            showImage2.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    int whichCardIsClicked = Integer.parseInt((String) v.getTag());
-                    doStuff(showImage2, whichCardIsClicked);
+            }
+        });
+        showImage2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                int whichCardIsClicked = Integer.parseInt((String) v.getTag());
+                doStuff(showImage2, whichCardIsClicked);
 
-                }
-            });
-            showImage3.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    int whichCardIsClicked = Integer.parseInt((String) v.getTag());
-                    doStuff(showImage3, whichCardIsClicked);
+            }
+        });
+        showImage3.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                int whichCardIsClicked = Integer.parseInt((String) v.getTag());
+                doStuff(showImage3, whichCardIsClicked);
 
-                }
-            });
-            showImage4.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    int whichCardIsClicked = Integer.parseInt((String) v.getTag());
-                    doStuff(showImage4, whichCardIsClicked);
+            }
+        });
+        showImage4.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                int whichCardIsClicked = Integer.parseInt((String) v.getTag());
+                doStuff(showImage4, whichCardIsClicked);
 
-                }
-            });
-
-
+            }
+        });
 
 
     }
@@ -162,18 +160,35 @@ public class GameSea1 extends AppCompatImageView {
         showImage3.setEnabled(true);
         showImage4.setEnabled(true);
 
-
+        //allImagesDisappear();
     }
 
-    public boolean allImagesDisappear() {
+    /*public void allImagesDisappear() {
         if (showImage1.getVisibility() == View.INVISIBLE
                 && showImage2.getVisibility() == View.INVISIBLE
                 && showImage3.getVisibility() == View.INVISIBLE
                 && showImage4.getVisibility() == View.INVISIBLE) {
-            allImagesDisappear = true;
+            AlertDialog.Builder alertDialog = new AlertDialog.Builder(Activity4.this);
+            //alertDialog.setIcon(R.id.congratuation)
+            alertDialog
+                    .setCancelable(false)
+                    .setPositiveButton("Next", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intent = new Intent(getApplicationContext(), Activity3.class);
+                            startActivity(intent);
+
+                        }
+                    })
+                    .setNegativeButton("Retry", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intent = new Intent(getApplicationContext(), Activity4.class);
+                            startActivity(intent);
+                        }
+                    });
         }
-        return allImagesDisappear;
-    }
+    }*/
 
 
 }
