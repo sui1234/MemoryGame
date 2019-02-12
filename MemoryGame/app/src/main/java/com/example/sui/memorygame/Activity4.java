@@ -1,13 +1,13 @@
 package com.example.sui.memorygame;
 
-import android.content.DialogInterface;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 public class Activity4 extends AppCompatActivity {
@@ -22,7 +22,6 @@ public class Activity4 extends AppCompatActivity {
 
     int number = 1;
     CardsSea1 card = new CardsSea1();
-
     ImageSea1 image = new ImageSea1();
 
     @Override
@@ -34,7 +33,6 @@ public class Activity4 extends AppCompatActivity {
         showImage2 = findViewById(R.id.image_piece2);
         showImage3 = findViewById(R.id.image_piece3);
         showImage4 = findViewById(R.id.image_piece4);
-
 
 
         showImage1.setTag("0");
@@ -156,36 +154,39 @@ public class Activity4 extends AppCompatActivity {
                 && showImage3.getVisibility() == View.INVISIBLE
                 && showImage4.getVisibility() == View.INVISIBLE)
         {
-            Log.d("disappear","wrong");
-            AlertDialog.Builder alertDialog = new AlertDialog.Builder(Activity4.this);
-            alertDialog.setIcon(R.drawable.ic_settingbutton);
-            alertDialog
-                    .setPositiveButton("Next", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Intent intent = new Intent(Activity4.this, Activity3.class);
-                            startActivity(intent);
-                            finish();
 
-                        }
-                    })
-                    .setNegativeButton("Retry", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Intent intent = new Intent(getApplicationContext(), Activity4.class);
-                            startActivity(intent);
-                            finish();
-                        }
-                    });
-            AlertDialog alertDialog1 = alertDialog.create();
-            alertDialog1.show();
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Activity4.this);
+
+            LayoutInflater factory = LayoutInflater.from(Activity4.this);
+
+            final View view = factory.inflate(R.layout.dialog, null);
+
+            alertDialogBuilder.setView(view);
+            setContentView(R.layout.dialog);
+            Button button1 = (Button) findViewById(R.id.buttonRetry);
+            Button button2 = (Button) findViewById(R.id.buttonNext);
+
+
+            button1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(Activity4.this, Activity4.class);
+                    startActivity(intent);
+                    finish();
+                }
+            });
+            button2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+            });
         }
     }
 
     public void backButtonPressed(View view) {
         Intent intent = new Intent(this, Activity3.class);
         startActivity(intent);
-        //Activity2.this.finish();
     }
 
 
