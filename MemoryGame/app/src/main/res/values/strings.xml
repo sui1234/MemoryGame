@@ -7,7 +7,8 @@
     <string name="level_button_2">Level 2</string>
     <string name="level_button_3">Level 3</string>
     <string name="level_button_4">Level 4</string>
-    <string name="title_activity_page5">Page5</string>
+    <string name="retry">Retry</string>
+    <string name="next">Next</string>
 
 
 </resources>

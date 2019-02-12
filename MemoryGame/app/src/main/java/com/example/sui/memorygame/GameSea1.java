@@ -1,27 +1,16 @@
 package com.example.sui.memorygame;
 
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 public class GameSea1 extends AppCompatImageView {
 
 
     private ImageView showImage1, showImage2, showImage3, showImage4;
-
-    int image1, image2, image3, image4;
-    int[] imageArray = null;             // picture library
 
     int firstCard;
     int secondCard;
@@ -30,7 +19,12 @@ public class GameSea1 extends AppCompatImageView {
     int clickedSecondPos;
 
     int number = 1;
+    boolean allImagesDisappear = false;
+
+
     CardsSea1 card = new CardsSea1();
+
+    ImageSea1 image = new ImageSea1();
 
 
     public GameSea1(Context context, ImageView[] showImage) {
@@ -57,35 +51,41 @@ public class GameSea1 extends AppCompatImageView {
         showImage3.setTag("2");
         showImage4.setTag("3");
 
-        frontOfCardsResources();
+        image.setImageToCards();
         card.shuffle();
 
-        imageArray = new int[]{image1, image2, image3, image4};
+        image.getImageArray();
 
-        showImage1.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                int whichCardIsClicked = Integer.parseInt((String) v.getTag());
-                doStuff(showImage1, whichCardIsClicked);
-            }
-        });
-        showImage2.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                int whichCardIsClicked = Integer.parseInt((String) v.getTag());
-                doStuff(showImage2, whichCardIsClicked);
-            }
-        });
-        showImage3.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                int whichCardIsClicked = Integer.parseInt((String) v.getTag());
-                doStuff(showImage3, whichCardIsClicked);
-            }
-        });
-        showImage4.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                int whichCardIsClicked = Integer.parseInt((String) v.getTag());
-                doStuff(showImage4, whichCardIsClicked);
-            }
-        });
+            showImage1.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    int whichCardIsClicked = Integer.parseInt((String) v.getTag());
+                    doStuff(showImage1, whichCardIsClicked);
+
+                }
+            });
+            showImage2.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    int whichCardIsClicked = Integer.parseInt((String) v.getTag());
+                    doStuff(showImage2, whichCardIsClicked);
+
+                }
+            });
+            showImage3.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    int whichCardIsClicked = Integer.parseInt((String) v.getTag());
+                    doStuff(showImage3, whichCardIsClicked);
+
+                }
+            });
+            showImage4.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    int whichCardIsClicked = Integer.parseInt((String) v.getTag());
+                    doStuff(showImage4, whichCardIsClicked);
+
+                }
+            });
+
+
 
 
     }
@@ -95,13 +95,13 @@ public class GameSea1 extends AppCompatImageView {
         int whichCard = card.getCardsArray()[clickedCardPos];
 
         if (whichCard == 1) {
-            showImage.setImageResource(imageArray[0]);
+            showImage.setImageResource(image.getImageArray()[0]);
         } else if (whichCard == 2) {
-            showImage.setImageResource(imageArray[1]);
+            showImage.setImageResource(image.getImageArray()[1]);
         } else if (whichCard == 3) {
-            showImage.setImageResource(imageArray[2]);
+            showImage.setImageResource(image.getImageArray()[2]);
         } else if (whichCard == 4) {
-            showImage.setImageResource(imageArray[3]);
+            showImage.setImageResource(image.getImageArray()[3]);
         }
 
         if (number == 1) {
@@ -130,16 +130,9 @@ public class GameSea1 extends AppCompatImageView {
         }
     }
 
-    public void frontOfCardsResources() {
-        image1 = R.drawable.fish;
-        image2 = R.drawable.fish;
-        image3 = R.drawable.starfish;
-        image4 = R.drawable.starfish;
-
-    }
 
     public void checkCard() {
-        if (imageArray[firstCard - 1] == imageArray[secondCard - 1]) {
+        if (image.getImageArray()[firstCard - 1] == image.getImageArray()[secondCard - 1]) {
             if (clickedFirstPos == 0)
                 showImage1.setVisibility(View.INVISIBLE);
             else if (clickedFirstPos == 1)
@@ -169,31 +162,21 @@ public class GameSea1 extends AppCompatImageView {
         showImage3.setEnabled(true);
         showImage4.setEnabled(true);
 
-        checkBoard();
+
     }
 
-    public void checkBoard() {
+    public boolean allImagesDisappear() {
         if (showImage1.getVisibility() == View.INVISIBLE
                 && showImage2.getVisibility() == View.INVISIBLE
                 && showImage3.getVisibility() == View.INVISIBLE
                 && showImage4.getVisibility() == View.INVISIBLE) {
-
-            Log.d("GameSea1","det funkar!");
+            allImagesDisappear = true;
         }
+        return allImagesDisappear;
     }
+
+
 }
-
-
-   /* public void loadImages() {
-
-        images = new ArrayList<Drawable>();
-        images.add(getResources().getDrawable(R.drawable.starfish));
-        images.add(getResources().getDrawable(R.drawable.fish));
-        images.add(getResources().getDrawable(R.drawable.starfish));
-        images.add(getResources().getDrawable(R.drawable.fish));
-
-
-    }*/
 
 
 
