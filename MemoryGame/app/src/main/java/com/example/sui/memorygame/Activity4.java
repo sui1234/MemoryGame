@@ -13,6 +13,8 @@ import android.widget.ImageView;
 public class Activity4 extends AppCompatActivity {
 
     private ImageView showImage1, showImage2, showImage3, showImage4;
+    private int image1, image2, image3, image4;
+
 
     int firstCard;
     int secondCard;
@@ -21,13 +23,18 @@ public class Activity4 extends AppCompatActivity {
     int clickedSecondPos;
 
     int number = 1;
-    CardsSea1 card = new CardsSea1();
-    ImageSea1 image = new ImageSea1();
+
+    Integer[] cardsArray = {1, 2, 3, 4};
+    int[] imageArray = null;
+
+    Cards card = new Cards(cardsArray);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_4);
+
 
         showImage1 = findViewById(R.id.image_piece1);
         showImage2 = findViewById(R.id.image_piece2);
@@ -40,10 +47,11 @@ public class Activity4 extends AppCompatActivity {
         showImage3.setTag("2");
         showImage4.setTag("3");
 
-        image.setImageToCards();
+        setImageToCards();
         card.shuffle();
 
-        image.getImageArray();
+        imageArray = new int[]{image1, image2, image3, image4};
+
 
         showImage1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -77,18 +85,26 @@ public class Activity4 extends AppCompatActivity {
 
     }
 
+    public void setImageToCards() {
+        image1 = R.drawable.fish;
+        image2 = R.drawable.fish;
+        image3 = R.drawable.starfish;
+        image4 = R.drawable.starfish;
+
+    }
+
     public void doStuff(ImageView showImage, int clickedCardPos) {
 
-        int whichCard = card.getCardsArray()[clickedCardPos];
+        int whichCard = cardsArray[clickedCardPos];
 
         if (whichCard == 1) {
-            showImage.setImageResource(image.getImageArray()[0]);
+            showImage.setImageResource(imageArray[0]);
         } else if (whichCard == 2) {
-            showImage.setImageResource(image.getImageArray()[1]);
+            showImage.setImageResource(imageArray[1]);
         } else if (whichCard == 3) {
-            showImage.setImageResource(image.getImageArray()[2]);
+            showImage.setImageResource(imageArray[2]);
         } else if (whichCard == 4) {
-            showImage.setImageResource(image.getImageArray()[3]);
+            showImage.setImageResource(imageArray[3]);
         }
 
         if (number == 1) {
@@ -119,7 +135,7 @@ public class Activity4 extends AppCompatActivity {
 
 
     public void checkCard() {
-        if (image.getImageArray()[firstCard - 1] == image.getImageArray()[secondCard - 1]) {
+        if (imageArray[firstCard - 1] == imageArray[secondCard - 1]) {
             if (clickedFirstPos == 0)
                 showImage1.setVisibility(View.INVISIBLE);
             else if (clickedFirstPos == 1)
@@ -152,8 +168,7 @@ public class Activity4 extends AppCompatActivity {
         if (showImage1.getVisibility() == View.INVISIBLE
                 && showImage2.getVisibility() == View.INVISIBLE
                 && showImage3.getVisibility() == View.INVISIBLE
-                && showImage4.getVisibility() == View.INVISIBLE)
-        {
+                && showImage4.getVisibility() == View.INVISIBLE) {
 
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Activity4.this);
 
@@ -188,6 +203,5 @@ public class Activity4 extends AppCompatActivity {
         Intent intent = new Intent(this, Activity3.class);
         startActivity(intent);
     }
-
 
 }
