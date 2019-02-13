@@ -62,15 +62,15 @@ public class Activity3 extends AppCompatActivity {
     }
 
     public void level2ButtonPressed() {
-        Intent intent = new Intent(this, Activity4.class);
+        Intent intent = new Intent(this, Activity5.class);
         startActivity(intent);
     }
     public void level3ButtonPressed() {
-        Intent intent = new Intent(this, Activity4.class);
+        Intent intent = new Intent(this, Activity6.class);
         startActivity(intent);
     }
     public void level4ButtonPressed() {
-        Intent intent = new Intent(this, Activity4.class);
+        Intent intent = new Intent(this, Activity7.class);
         startActivity(intent);
     }
 

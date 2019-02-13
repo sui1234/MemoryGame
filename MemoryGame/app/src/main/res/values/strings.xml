@@ -9,6 +9,9 @@
     <string name="level_button_4">Level 4</string>
     <string name="retry">Retry</string>
     <string name="next">Next</string>
+    <string name="title_activity_5">Activity5</string>
+    <string name="title_activity_6">Activity6</string>
+    <string name="title_activity_7">Activity7</string>
 
 
 </resources>
