@@ -16,8 +16,6 @@ public class Activity7 extends AppCompatActivity {
             showImage7,showImage8,showImage9,showImage10,showImage11,showImage12;
     private int image1, image2, image3, image4,image5,image6,
             image7,image8,image9,image10,image11,image12;
-
-
     int firstCard;
     int secondCard;
 
@@ -30,8 +28,6 @@ public class Activity7 extends AppCompatActivity {
     int[] imageArray = null;
 
     Cards card = new Cards(cardsArray);
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +47,6 @@ public class Activity7 extends AppCompatActivity {
         showImage11 = findViewById(R.id.image_piece11);
         showImage12 = findViewById(R.id.image_piece12);
 
-
         showImage1.setTag("0");
         showImage2.setTag("1");
         showImage3.setTag("2");
@@ -65,54 +60,46 @@ public class Activity7 extends AppCompatActivity {
         showImage11.setTag("10");
         showImage12.setTag("11");
 
-
         setImageToCards();
         card.shuffle();
 
         imageArray = new int[]{image1, image2, image3, image4,image5,image6,
                 image7,image8,image9,image10,image11,image12};
 
-
         showImage1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 int whichCardIsClicked = Integer.parseInt((String) v.getTag());
                 doStuff(showImage1, whichCardIsClicked);
-
             }
         });
         showImage2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 int whichCardIsClicked = Integer.parseInt((String) v.getTag());
                 doStuff(showImage2, whichCardIsClicked);
-
             }
         });
         showImage3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 int whichCardIsClicked = Integer.parseInt((String) v.getTag());
                 doStuff(showImage3, whichCardIsClicked);
-
             }
         });
         showImage4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 int whichCardIsClicked = Integer.parseInt((String) v.getTag());
                 doStuff(showImage4, whichCardIsClicked);
-
             }
         });
         showImage5.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 int whichCardIsClicked = Integer.parseInt((String) v.getTag());
                 doStuff(showImage5, whichCardIsClicked);
-
             }
         });
         showImage6.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 int whichCardIsClicked = Integer.parseInt((String) v.getTag());
                 doStuff(showImage6, whichCardIsClicked);
-
             }
         });
 
@@ -120,7 +107,6 @@ public class Activity7 extends AppCompatActivity {
             public void onClick(View v) {
                 int whichCardIsClicked = Integer.parseInt((String) v.getTag());
                 doStuff(showImage7, whichCardIsClicked);
-
             }
         });
 
@@ -128,39 +114,32 @@ public class Activity7 extends AppCompatActivity {
             public void onClick(View v) {
                 int whichCardIsClicked = Integer.parseInt((String) v.getTag());
                 doStuff(showImage8, whichCardIsClicked);
-
             }
         });
         showImage9.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 int whichCardIsClicked = Integer.parseInt((String) v.getTag());
                 doStuff(showImage9, whichCardIsClicked);
-
             }
         });
         showImage10.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 int whichCardIsClicked = Integer.parseInt((String) v.getTag());
                 doStuff(showImage10, whichCardIsClicked);
-
             }
         });
         showImage11.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 int whichCardIsClicked = Integer.parseInt((String) v.getTag());
                 doStuff(showImage11, whichCardIsClicked);
-
             }
         });
         showImage12.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 int whichCardIsClicked = Integer.parseInt((String) v.getTag());
                 doStuff(showImage12, whichCardIsClicked);
-
             }
         });
-
-
     }
 
     public void setImageToCards() {
@@ -176,7 +155,6 @@ public class Activity7 extends AppCompatActivity {
         image10 = R.drawable.fish1;
         image11 = R.drawable.seaturtle;
         image12 = R.drawable.seaturtle;
-
     }
 
     public void doStuff(ImageView showImage, int clickedCardPos) {
@@ -217,7 +195,6 @@ public class Activity7 extends AppCompatActivity {
 
         } else if (number == 2) {
             secondCard = whichCard;
-
             clickedSecondPos = clickedCardPos;
             showImage1.setEnabled(false);
             showImage2.setEnabled(false);
@@ -242,7 +219,6 @@ public class Activity7 extends AppCompatActivity {
             }, 1000);
         }
     }
-
 
     public void checkCard() {
         if (imageArray[firstCard - 1] == imageArray[secondCard - 1]) {
@@ -323,7 +299,6 @@ public class Activity7 extends AppCompatActivity {
         showImage11.setEnabled(true);
         showImage12.setEnabled(true);
 
-
         if (showImage1.getVisibility() == View.INVISIBLE
                 && showImage2.getVisibility() == View.INVISIBLE
                 && showImage3.getVisibility() == View.INVISIBLE
@@ -365,10 +340,8 @@ public class Activity7 extends AppCompatActivity {
                     finish();
                 }
             });
-
         }
     }
-
     public void backButtonPressed(View view) {
         Intent intent = new Intent(this, Activity3.class);
         startActivity(intent);

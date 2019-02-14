@@ -15,7 +15,6 @@ public class Activity4 extends AppCompatActivity {
     private ImageView showImage1, showImage2, showImage3, showImage4;
     private int image1, image2, image3, image4;
 
-
     int firstCard;
     int secondCard;
 
@@ -26,7 +25,6 @@ public class Activity4 extends AppCompatActivity {
 
     Integer[] cardsArray = {1, 2, 3, 4};
     int[] imageArray = null;
-
     Cards card = new Cards(cardsArray);
 
 
@@ -41,7 +39,6 @@ public class Activity4 extends AppCompatActivity {
         showImage3 = findViewById(R.id.image_piece3);
         showImage4 = findViewById(R.id.image_piece4);
 
-
         showImage1.setTag("0");
         showImage2.setTag("1");
         showImage3.setTag("2");
@@ -52,39 +49,31 @@ public class Activity4 extends AppCompatActivity {
 
         imageArray = new int[]{image1, image2, image3, image4};
 
-
         showImage1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 int whichCardIsClicked = Integer.parseInt((String) v.getTag());
                 doStuff(showImage1, whichCardIsClicked);
-
             }
         });
         showImage2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 int whichCardIsClicked = Integer.parseInt((String) v.getTag());
                 doStuff(showImage2, whichCardIsClicked);
-
             }
         });
         showImage3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 int whichCardIsClicked = Integer.parseInt((String) v.getTag());
                 doStuff(showImage3, whichCardIsClicked);
-
             }
         });
         showImage4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 int whichCardIsClicked = Integer.parseInt((String) v.getTag());
                 doStuff(showImage4, whichCardIsClicked);
-
             }
         });
-
-
     }
-
     public void setImageToCards() {
         image1 = R.drawable.fish;
         image2 = R.drawable.fish;
@@ -132,7 +121,6 @@ public class Activity4 extends AppCompatActivity {
             }, 1000);
         }
     }
-
 
     public void checkCard() {
         if (imageArray[firstCard - 1] == imageArray[secondCard - 1]) {
@@ -200,10 +188,8 @@ public class Activity4 extends AppCompatActivity {
             });
         }
     }
-
     public void backButtonPressed(View view) {
         Intent intent = new Intent(this, Activity3.class);
         startActivity(intent);
     }
-
 }

@@ -12,6 +12,9 @@
     <string name="title_activity_5">Activity5</string>
     <string name="title_activity_6">Activity6</string>
     <string name="title_activity_7">Activity7</string>
+    <string name="on">On</string>
+    <string name="off">Off</string>
+    <string name="music">Music</string>
 
 
 </resources>

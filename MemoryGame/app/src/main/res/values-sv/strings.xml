@@ -10,6 +10,11 @@
     <string name="retry">Igen</string>
     <string name="next">Nästa</string>
     <string name="title_activity_5">Activity5</string>
+    <string name="title_activity_6">Activity6</string>
+    <string name="title_activity_7">Activity7</string>
+    <string name="on">På</string>
+    <string name="off">Av</string>
+    <string name="music">Musik</string>
 
 
 </resources>
