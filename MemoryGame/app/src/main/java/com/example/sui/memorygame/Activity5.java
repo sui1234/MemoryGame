@@ -12,8 +12,8 @@ import android.widget.ImageView;
 
 public class Activity5 extends AppCompatActivity {
 
-    private ImageView showImage1, showImage2, showImage3, showImage4,showImage5,showImage6;
-    private int image1, image2, image3, image4,image5,image6;
+    private ImageView showImage1, showImage2, showImage3, showImage4,showImage5,showImage6,showImage7,showImage8;
+    private int image1, image2, image3, image4,image5,image6,image7,image8;
 
 
     int firstCard;
@@ -24,7 +24,7 @@ public class Activity5 extends AppCompatActivity {
 
     int number = 1;
 
-    Integer[] cardsArray = {1, 2, 3, 4, 5, 6};
+    Integer[] cardsArray = {1, 2, 3, 4, 5, 6, 7, 8};
     int[] imageArray = null;
 
     Cards card = new Cards(cardsArray);
@@ -42,6 +42,8 @@ public class Activity5 extends AppCompatActivity {
         showImage4 = findViewById(R.id.image_piece4);
         showImage5 = findViewById(R.id.image_piece5);
         showImage6 = findViewById(R.id.image_piece6);
+        showImage7 = findViewById(R.id.image_piece7);
+        showImage8 = findViewById(R.id.image_piece8);
 
 
         showImage1.setTag("0");
@@ -50,12 +52,14 @@ public class Activity5 extends AppCompatActivity {
         showImage4.setTag("3");
         showImage5.setTag("4");
         showImage6.setTag("5");
+        showImage7.setTag("6");
+        showImage8.setTag("7");
 
 
         setImageToCards();
         card.shuffle();
 
-        imageArray = new int[]{image1, image2, image3, image4,image5,image6};
+        imageArray = new int[]{image1, image2, image3, image4,image5,image6,image7,image8};
 
 
         showImage1.setOnClickListener(new View.OnClickListener() {
@@ -101,6 +105,22 @@ public class Activity5 extends AppCompatActivity {
             }
         });
 
+        showImage7.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                int whichCardIsClicked = Integer.parseInt((String) v.getTag());
+                doStuff(showImage7, whichCardIsClicked);
+
+            }
+        });
+
+        showImage8.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                int whichCardIsClicked = Integer.parseInt((String) v.getTag());
+                doStuff(showImage8, whichCardIsClicked);
+
+            }
+        });
+
 
     }
 
@@ -111,6 +131,8 @@ public class Activity5 extends AppCompatActivity {
         image4 = R.drawable.starfish;
         image5 = R.drawable.fish2;
         image6 = R.drawable.fish2;
+        image7 = R.drawable.bigfish;
+        image8 = R.drawable.bigfish;
 
     }
 
@@ -130,6 +152,10 @@ public class Activity5 extends AppCompatActivity {
             showImage.setImageResource(imageArray[4]);
         } else if (whichCard == 6) {
             showImage.setImageResource(imageArray[5]);
+        }else if (whichCard == 7) {
+            showImage.setImageResource(imageArray[6]);
+        } else if (whichCard == 8) {
+            showImage.setImageResource(imageArray[7]);
         }
 
         if (number == 1) {
@@ -148,6 +174,8 @@ public class Activity5 extends AppCompatActivity {
             showImage4.setEnabled(false);
             showImage5.setEnabled(false);
             showImage6.setEnabled(false);
+            showImage7.setEnabled(false);
+            showImage8.setEnabled(false);
             number = 1;
 
             Handler handler = new Handler();
@@ -175,6 +203,10 @@ public class Activity5 extends AppCompatActivity {
                 showImage5.setVisibility(View.INVISIBLE);
             else if (clickedFirstPos == 5)
                 showImage6.setVisibility(View.INVISIBLE);
+            else if (clickedFirstPos == 6)
+                showImage7.setVisibility(View.INVISIBLE);
+            else if (clickedFirstPos == 7)
+                showImage8.setVisibility(View.INVISIBLE);
 
             if (clickedSecondPos == 0)
                 showImage1.setVisibility(View.INVISIBLE);
@@ -188,6 +220,10 @@ public class Activity5 extends AppCompatActivity {
                 showImage5.setVisibility(View.INVISIBLE);
             else if (clickedSecondPos == 5)
                 showImage6.setVisibility(View.INVISIBLE);
+            else if (clickedSecondPos == 6)
+                showImage7.setVisibility(View.INVISIBLE);
+            else if (clickedSecondPos == 7)
+                showImage8.setVisibility(View.INVISIBLE);
         } else {
             showImage1.setImageResource(R.drawable.circle_button);
             showImage2.setImageResource(R.drawable.circle_button);
@@ -195,6 +231,8 @@ public class Activity5 extends AppCompatActivity {
             showImage4.setImageResource(R.drawable.circle_button);
             showImage5.setImageResource(R.drawable.circle_button);
             showImage6.setImageResource(R.drawable.circle_button);
+            showImage7.setImageResource(R.drawable.circle_button);
+            showImage8.setImageResource(R.drawable.circle_button);
         }
 
         showImage1.setEnabled(true);
@@ -203,13 +241,17 @@ public class Activity5 extends AppCompatActivity {
         showImage4.setEnabled(true);
         showImage5.setEnabled(true);
         showImage6.setEnabled(true);
+        showImage7.setEnabled(true);
+        showImage8.setEnabled(true);
 
         if (showImage1.getVisibility() == View.INVISIBLE
                 && showImage2.getVisibility() == View.INVISIBLE
                 && showImage3.getVisibility() == View.INVISIBLE
                 && showImage4.getVisibility() == View.INVISIBLE
                 && showImage5.getVisibility() == View.INVISIBLE
-                && showImage6.getVisibility() == View.INVISIBLE) {
+                && showImage6.getVisibility() == View.INVISIBLE
+                && showImage7.getVisibility() == View.INVISIBLE
+                && showImage8.getVisibility() == View.INVISIBLE) {
 
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Activity5.this);
 
@@ -219,14 +261,14 @@ public class Activity5 extends AppCompatActivity {
 
             alertDialogBuilder.setView(view);
             setContentView(R.layout.dialog);
-            Button button1 = (Button) findViewById(R.id.buttonRetry);
+            Button button1 = (Button) findViewById(R.id.buttonMenu);
             Button button2 = (Button) findViewById(R.id.buttonNext);
 
 
             button1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(Activity5.this, Activity5.class);
+                    Intent intent = new Intent(Activity5.this, Activity2.class);
                     startActivity(intent);
                     finish();
                 }
@@ -237,13 +279,14 @@ public class Activity5 extends AppCompatActivity {
                     Intent intent = new Intent(Activity5.this, Activity6.class);
                     startActivity(intent);
                     finish();
+
                 }
             });
         }
     }
 
     public void backButtonPressed(View view) {
-        Intent intent = new Intent(this, Activity3.class);
+        Intent intent = new Intent(this, Activity2.class);
         startActivity(intent);
     }
 

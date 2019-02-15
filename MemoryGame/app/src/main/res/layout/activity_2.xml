@@ -4,92 +4,81 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
-    app:layout_constraintCircleRadius="?attr/dialogCornerRadius"
-    tools:context=".Activity2">
+    tools:context=".Activity3"
+    android:background="@drawable/background">
 
     <ImageButton
-        android:id="@+id/back_button_main"
+        android:id="@+id/back_button2"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:background="#00000000"
-        android:onClick="backButtonPressed"
         android:src="@drawable/ic_back_button"
+        android:onClick="backButtonPressed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="120dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="70dp"
+    <Button
+        android:id="@+id/button_level_1"
+        android:layout_width="130dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="236dp"
+        android:background="@drawable/round_button_pink"
         android:fontFamily="cursive"
-        android:text="@string/choose_name"
-        android:textAlignment="center"
-        android:textSize="50dp"
-        app:layout_constraintBottom_toTopOf="@+id/image_animal"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:onClick="levelButtonPressed"
+        android:text="@string/level_button_1"
+        android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints,OnClick" />
 
-    <ImageButton
-        android:id="@+id/image_animal"
-        android:layout_width="236dp"
-        android:layout_height="78dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="30dp"
-        android:background="#00000000"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toTopOf="@+id/image_flower"
+    <Button
+        android:id="@+id/button_level_2"
+        android:layout_width="130dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="236dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/round_button_pink"
+        android:fontFamily="cursive"
+        android:text="@string/level_button_2"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/dolphin1" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
-    <ImageButton
-        android:id="@+id/image_flower"
-        android:layout_width="236dp"
-        android:layout_height="78dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="30dp"
-        android:background="#00000000"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toTopOf="@+id/image_fruit"
-        app:layout_constraintEnd_toEndOf="parent"
+    <Button
+        android:id="@+id/button_level_3"
+        android:layout_width="130dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginBottom="210dp"
+        android:background="@drawable/round_button_pink"
+        android:fontFamily="cursive"
+        android:text="@string/level_button_3"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/flower1" />
+        tools:ignore="MissingConstraints" />
 
-    <ImageButton
-        android:id="@+id/image_fruit"
-        android:layout_width="236dp"
-        android:layout_height="78dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="140dp"
-        android:background="#00000000"
-        android:scaleType="fitXY"
+    <Button
+        android:id="@+id/button_level_4"
+        android:layout_width="130dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="210dp"
+        android:background="@drawable/round_button_pink"
+        android:fontFamily="cursive"
+        android:text="@string/level_button_4"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/fruit1" />
-
-
+        tools:ignore="MissingConstraints" />
 </android.support.constraint.ConstraintLayout>

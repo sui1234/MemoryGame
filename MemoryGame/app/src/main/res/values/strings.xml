@@ -7,7 +7,7 @@
     <string name="level_button_2">Level 2</string>
     <string name="level_button_3">Level 3</string>
     <string name="level_button_4">Level 4</string>
-    <string name="retry">Retry</string>
+    <string name="menu">Menu</string>
     <string name="next">Next</string>
     <string name="title_activity_5">Activity5</string>
     <string name="title_activity_6">Activity6</string>
@@ -15,6 +15,7 @@
     <string name="on">On</string>
     <string name="off">Off</string>
     <string name="music">Music</string>
+    <string name="clickHere">click here to exit</string>
 
 
 </resources>

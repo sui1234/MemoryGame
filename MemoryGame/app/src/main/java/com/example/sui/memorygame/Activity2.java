@@ -4,44 +4,73 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageButton;
+import android.widget.Button;
 
 public class Activity2 extends AppCompatActivity {
-
-    private ImageButton imgButton2;
-    private ImageButton imgButton5;
+    private Button buttonLevel1;
+    private Button buttonLevel2;
+    private Button buttonLevel3;
+    private Button buttonLevel4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2);
 
-
-        imgButton2 = (ImageButton) findViewById(R.id.image_animal);
-        imgButton2.setOnClickListener(new View.OnClickListener() {
+        buttonLevel1 = (Button) findViewById(R.id.button_level_1);
+        buttonLevel1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivity3();
+                level1ButtonPressed();
             }
         });
 
+        buttonLevel2 = (Button) findViewById(R.id.button_level_2);
+        buttonLevel2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                level2ButtonPressed();
+            }
+        });
 
+        buttonLevel1 = (Button) findViewById(R.id.button_level_3);
+        buttonLevel1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                level3ButtonPressed();
+            }
+        });
+
+        buttonLevel1 = (Button) findViewById(R.id.button_level_4);
+        buttonLevel1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                level4ButtonPressed();
+            }
+        });
     }
-
-    public void openActivity3() {
-        Intent intent2 = new Intent(this, Activity3.class);
-        startActivity(intent2);
-    }
-
-    /*public void openActivity4(){
-        Intent intent3 = new Intent(this,Activity4.class);
-        startActivity(intent3);
-    }*/
 
     public void backButtonPressed(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-        //Activity2.this.finish();
+    }
+
+    public void level1ButtonPressed() {
+        Intent intent = new Intent(this, Activity3.class);
+        startActivity(intent);
+    }
+
+    public void level2ButtonPressed() {
+        Intent intent = new Intent(this, Activity4.class);
+        startActivity(intent);
+    }
+    public void level3ButtonPressed() {
+        Intent intent = new Intent(this, Activity5.class);
+        startActivity(intent);
+    }
+    public void level4ButtonPressed() {
+        Intent intent = new Intent(this, Activity6.class);
+        startActivity(intent);
     }
 
 

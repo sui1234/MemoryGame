@@ -15,17 +15,21 @@ public class MainActivity extends AppCompatActivity {
     private ImageView settingImage;
     MediaPlayer backgroundMusic;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-// music
-        backgroundMusic = MediaPlayer.create(MainActivity.this, R.raw.ocean_music);
+ //music
+        backgroundMusic = MediaPlayer.create( MainActivity.this, R.raw.ocean_music);
         backgroundMusic.setLooping(true);
-
 //setting Image
         setContentView(R.layout.activity_main);
         settingImage = (ImageView) findViewById(R.id.setting_button);
+
+
+
         settingImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,39 +50,39 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
                     }
                 });
-
-
                 Button button1 = (Button) findViewById(R.id.buttonOn);
                 Button button2 = (Button) findViewById(R.id.buttonOff);
-
 
                 button1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
+                        backgroundMusic = MediaPlayer.create( MainActivity.this, R.raw.ocean_music);
+                        backgroundMusic.setLooping(true);
                         backgroundMusic.start();
-
-
                     }
                 });
                 button2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        backgroundMusic.stop();
+                            backgroundMusic.release();
                     }
                 });
 
-
             }
+
         });
+
 
         button = (Button) findViewById(R.id.button_play);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                backgroundMusic = MediaPlayer.create( MainActivity.this, R.raw.ocean_music);
+                backgroundMusic.setLooping(true);
                 playButtonPressed();
             }
         });
-
     }
 
     public void playButtonPressed() {

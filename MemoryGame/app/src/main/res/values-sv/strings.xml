@@ -7,7 +7,7 @@
     <string name="level_button_2">nivå 2</string>
     <string name="level_button_3">nivå 3</string>
     <string name="level_button_4">nivå 4</string>
-    <string name="retry">Igen</string>
+    <string name="menu">Menu</string>
     <string name="next">Nästa</string>
     <string name="title_activity_5">Activity5</string>
     <string name="title_activity_6">Activity6</string>
@@ -15,6 +15,7 @@
     <string name="on">På</string>
     <string name="off">Av</string>
     <string name="music">Musik</string>
+    <string name="clickHere">Klick här att lämna</string>
 
 
 </resources>
