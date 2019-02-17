@@ -143,18 +143,18 @@ public class Activity6 extends AppCompatActivity {
     }
 
     public void setImageToCards() {
-        image1 = R.drawable.fish;
-        image2 = R.drawable.fish;
-        image3 = R.drawable.starfish;
-        image4 = R.drawable.starfish;
-        image5 = R.drawable.fish2;
-        image6 = R.drawable.fish2;
-        image7 = R.drawable.bigfish;
-        image8 = R.drawable.bigfish;
-        image9 = R.drawable.fish1;
-        image10 = R.drawable.fish1;
-        image11 = R.drawable.seaturtle;
-        image12 = R.drawable.seaturtle;
+        image1 = R.drawable.gulfisk;
+        image2 = R.drawable.gulfisk;
+        image3 = R.drawable.starfisk;
+        image4 = R.drawable.starfisk;
+        image5 = R.drawable.dolphin;
+        image6 = R.drawable.dolphin;
+        image7 = R.drawable.redfish;
+        image8 = R.drawable.redfish;
+        image9 = R.drawable.flatfisk;
+        image10 = R.drawable.flatfisk;
+        image11 = R.drawable.totorise;
+        image12 = R.drawable.totorise;
     }
 
     public void doStuff(ImageView showImage, int clickedCardPos) {

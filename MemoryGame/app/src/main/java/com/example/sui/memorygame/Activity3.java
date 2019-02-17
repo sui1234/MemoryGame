@@ -75,10 +75,10 @@ public class Activity3 extends AppCompatActivity {
         });
     }
     public void setImageToCards() {
-        image1 = R.drawable.fish;
-        image2 = R.drawable.fish;
-        image3 = R.drawable.starfish;
-        image4 = R.drawable.starfish;
+        image1 = R.drawable.starfisk;
+        image2 = R.drawable.starfisk;
+        image3 = R.drawable.gulfisk;
+        image4 = R.drawable.gulfisk;
 
     }
 

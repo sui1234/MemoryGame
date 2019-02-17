@@ -105,12 +105,12 @@ public class Activity4 extends AppCompatActivity {
     }
 
     public void setImageToCards() {
-        image1 = R.drawable.fish;
-        image2 = R.drawable.fish;
-        image3 = R.drawable.starfish;
-        image4 = R.drawable.starfish;
-        image5 = R.drawable.fish2;
-        image6 = R.drawable.fish2;
+        image1 = R.drawable.gulfisk;
+        image2 = R.drawable.gulfisk;
+        image3 = R.drawable.starfisk;
+        image4 = R.drawable.starfisk;
+        image5 = R.drawable.dolphin;
+        image6 = R.drawable.dolphin;
 
     }
 

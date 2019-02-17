@@ -48,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+// Play music funktion
+
                 initlizeViews();
             }
 
