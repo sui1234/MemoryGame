@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -13,22 +14,17 @@ import android.widget.ImageView;
 public class MainActivity extends AppCompatActivity {
     private Button button;
     private ImageView settingImage;
-    MediaPlayer backgroundMusic;
-
+    private static String TAG = "MusicService";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
- //music
-        backgroundMusic = MediaPlayer.create( MainActivity.this, R.raw.ocean_music);
-        backgroundMusic.setLooping(true);
+
 //setting Image
         setContentView(R.layout.activity_main);
         settingImage = (ImageView) findViewById(R.id.setting_button);
-
-
 
         settingImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,48 +42,61 @@ public class MainActivity extends AppCompatActivity {
                 image.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
                         Intent intent = new Intent(MainActivity.this, MainActivity.class);
                         startActivity(intent);
                     }
                 });
-                Button button1 = (Button) findViewById(R.id.buttonOn);
-                Button button2 = (Button) findViewById(R.id.buttonOff);
 
-                button1.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                        backgroundMusic = MediaPlayer.create( MainActivity.this, R.raw.ocean_music);
-                        backgroundMusic.setLooping(true);
-                        backgroundMusic.start();
-                    }
-                });
-                button2.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                            backgroundMusic.release();
-                    }
-                });
-
+                initlizeViews();
             }
 
-        });
 
+        });
 
         button = (Button) findViewById(R.id.button_play);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                backgroundMusic = MediaPlayer.create( MainActivity.this, R.raw.ocean_music);
-                backgroundMusic.setLooping(true);
                 playButtonPressed();
             }
         });
+
+
     }
 
     public void playButtonPressed() {
         Intent intent = new Intent(this, Activity2.class);
         startActivity(intent);
+    }
+
+    public void initlizeViews() {
+
+        Button btnStart = (Button) findViewById(R.id.buttonOn);
+        Button btnStop = (Button) findViewById(R.id.buttonOff);
+        View.OnClickListener ocl = new View.OnClickListener() {
+
+
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(MainActivity.this, MusicService.class);
+                switch (v.getId()) {
+                    case R.id.buttonOn:
+
+                        startService(intent);
+                        break;
+                    case R.id.buttonOff:
+
+                        stopService(intent);
+                        break;
+                }
+            }
+        };
+
+        btnStart.setOnClickListener(ocl);
+        btnStop.setOnClickListener(ocl);
+
     }
 
 
