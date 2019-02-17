@@ -13,7 +13,7 @@ import android.widget.ImageView;
 public class Activity3 extends AppCompatActivity {
 
     private ImageView showImage1, showImage2, showImage3, showImage4;
-    private int image1, image2, image3, image4;
+    private int cardImage1, cardImage2, cardImage3, cardImage4;
 
     int firstCard;
     int secondCard;
@@ -24,7 +24,7 @@ public class Activity3 extends AppCompatActivity {
     int number = 1;
 
     Integer[] cardsArray = {1, 2, 3, 4};
-    int[] imageArray = null;
+    int[] cardImageArray = null;
     Cards card = new Cards(cardsArray);
 
 
@@ -47,7 +47,7 @@ public class Activity3 extends AppCompatActivity {
         setImageToCards();
         card.shuffle();
 
-        imageArray = new int[]{image1, image2, image3, image4};
+        cardImageArray = new int[]{cardImage1, cardImage2, cardImage3, cardImage4};
 
         showImage1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -75,10 +75,10 @@ public class Activity3 extends AppCompatActivity {
         });
     }
     public void setImageToCards() {
-        image1 = R.drawable.starfisk;
-        image2 = R.drawable.starfisk;
-        image3 = R.drawable.gulfisk;
-        image4 = R.drawable.gulfisk;
+        cardImage1 = R.drawable.starfisk;
+        cardImage2 = R.drawable.starfisk;
+        cardImage3 = R.drawable.gulfisk;
+        cardImage4 = R.drawable.gulfisk;
 
     }
 
@@ -87,13 +87,13 @@ public class Activity3 extends AppCompatActivity {
         int whichCard = cardsArray[clickedCardPos];
 
         if (whichCard == 1) {
-            showImage.setImageResource(imageArray[0]);
+            showImage.setImageResource(cardImageArray[0]);
         } else if (whichCard == 2) {
-            showImage.setImageResource(imageArray[1]);
+            showImage.setImageResource(cardImageArray[1]);
         } else if (whichCard == 3) {
-            showImage.setImageResource(imageArray[2]);
+            showImage.setImageResource(cardImageArray[2]);
         } else if (whichCard == 4) {
-            showImage.setImageResource(imageArray[3]);
+            showImage.setImageResource(cardImageArray[3]);
         }
 
         if (number == 1) {
@@ -123,7 +123,7 @@ public class Activity3 extends AppCompatActivity {
     }
 
     public void checkCard() {
-        if (imageArray[firstCard - 1] == imageArray[secondCard - 1]) {
+        if (cardImageArray[firstCard - 1] == cardImageArray[secondCard - 1]) {
             if (clickedFirstPos == 0)
                 showImage1.setVisibility(View.INVISIBLE);
             else if (clickedFirstPos == 1)
