@@ -31,6 +31,7 @@ public class MusicService extends Service {
         mPlayer.stop();
         super.onDestroy();
     }
+
     // genom onBindService funktion to meddela Service
     @Override
     public IBinder onBind(Intent intent) {

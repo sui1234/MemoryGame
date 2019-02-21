@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-public class Activity5 extends AppCompatActivity {
+public class EightCardsActivity extends AppCompatActivity {
 
     private ImageView showImage1, showImage2, showImage3, showImage4,showImage5,showImage6,showImage7,showImage8;
     private int image1, image2, image3, image4,image5,image6,image7,image8;
@@ -34,7 +34,7 @@ public class Activity5 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_5);
+        setContentView(R.layout.activity_eight_cards);
 
         showImage1 = findViewById(R.id.image_piece1);
         showImage2 = findViewById(R.id.image_piece2);
@@ -253,9 +253,9 @@ public class Activity5 extends AppCompatActivity {
                 && showImage7.getVisibility() == View.INVISIBLE
                 && showImage8.getVisibility() == View.INVISIBLE) {
 
-            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Activity5.this);
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(EightCardsActivity.this);
 
-            LayoutInflater factory = LayoutInflater.from(Activity5.this);
+            LayoutInflater factory = LayoutInflater.from(EightCardsActivity.this);
 
             final View view = factory.inflate(R.layout.dialog, null);
 
@@ -268,7 +268,7 @@ public class Activity5 extends AppCompatActivity {
             button1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(Activity5.this, Activity2.class);
+                    Intent intent = new Intent(EightCardsActivity.this, LevelActivity.class);
                     startActivity(intent);
                     finish();
                 }
@@ -276,7 +276,7 @@ public class Activity5 extends AppCompatActivity {
             button2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(Activity5.this, Activity6.class);
+                    Intent intent = new Intent(EightCardsActivity.this, TwelveCardsActivity.class);
                     startActivity(intent);
                     finish();
 
@@ -286,7 +286,7 @@ public class Activity5 extends AppCompatActivity {
     }
 
     public void backButtonPressed(View view) {
-        Intent intent = new Intent(this, Activity2.class);
+        Intent intent = new Intent(this, LevelActivity.class);
         startActivity(intent);
     }
 

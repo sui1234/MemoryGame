@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class Activity2 extends AppCompatActivity {
+public class LevelActivity extends AppCompatActivity {
     private Button buttonLevel1;
     private Button buttonLevel2;
     private Button buttonLevel3;
@@ -15,7 +15,9 @@ public class Activity2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_2);
+        setContentView(R.layout.activity_level);
+
+//level button onclicklistener
 
         buttonLevel1 = (Button) findViewById(R.id.button_level_1);
         buttonLevel1.setOnClickListener(new View.OnClickListener() {
@@ -56,20 +58,20 @@ public class Activity2 extends AppCompatActivity {
     }
 
     public void level1ButtonPressed() {
-        Intent intent = new Intent(this, Activity3.class);
+        Intent intent = new Intent(this, FourCardsActivity.class);
         startActivity(intent);
     }
 
     public void level2ButtonPressed() {
-        Intent intent = new Intent(this, Activity4.class);
+        Intent intent = new Intent(this, SixCardsActivity.class);
         startActivity(intent);
     }
     public void level3ButtonPressed() {
-        Intent intent = new Intent(this, Activity5.class);
+        Intent intent = new Intent(this, EightCardsActivity.class);
         startActivity(intent);
     }
     public void level4ButtonPressed() {
-        Intent intent = new Intent(this, Activity6.class);
+        Intent intent = new Intent(this, TwelveCardsActivity.class);
         startActivity(intent);
     }
 

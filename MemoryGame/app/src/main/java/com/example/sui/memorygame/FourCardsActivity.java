@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-public class Activity3 extends AppCompatActivity {
+public class FourCardsActivity extends AppCompatActivity {
 
     private ImageView showImage1, showImage2, showImage3, showImage4;
     private int cardImage1, cardImage2, cardImage3, cardImage4;
@@ -32,7 +32,7 @@ public class Activity3 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_3);
+        setContentView(R.layout.activity_four_cards);
 
         showImage1 = findViewById(R.id.image_piece1);
         showImage2 = findViewById(R.id.image_piece2);
@@ -74,6 +74,9 @@ public class Activity3 extends AppCompatActivity {
             }
         });
     }
+
+    // function -- to set pictures to cardImages.
+
     public void setImageToCards() {
         cardImage1 = R.drawable.starfisk;
         cardImage2 = R.drawable.starfisk;
@@ -81,6 +84,8 @@ public class Activity3 extends AppCompatActivity {
         cardImage4 = R.drawable.gulfisk;
 
     }
+
+   // function -- to give picture to the card which is clicked.
 
     public void doStuff(ImageView showImage, int clickedCardPos) {
 
@@ -122,7 +127,12 @@ public class Activity3 extends AppCompatActivity {
         }
     }
 
+
+    // function -- to check if two cards have same picture.
+
     public void checkCard() {
+
+        // if two pictures are same, set showImage invisible, else, showImages become the back image.
         if (cardImageArray[firstCard - 1] == cardImageArray[secondCard - 1]) {
             if (clickedFirstPos == 0)
                 showImage1.setVisibility(View.INVISIBLE);
@@ -153,14 +163,19 @@ public class Activity3 extends AppCompatActivity {
         showImage3.setEnabled(true);
         showImage4.setEnabled(true);
 
+
+
+// if all showImages are invisible, then show a dialog that a xml file that I create.
         if (showImage1.getVisibility() == View.INVISIBLE
                 && showImage2.getVisibility() == View.INVISIBLE
                 && showImage3.getVisibility() == View.INVISIBLE
                 && showImage4.getVisibility() == View.INVISIBLE) {
 
-            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Activity3.this);
+//Alertdiaglog
 
-            LayoutInflater factory = LayoutInflater.from(Activity3.this);
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(FourCardsActivity.this);
+
+            LayoutInflater factory = LayoutInflater.from(FourCardsActivity.this);
 
             final View view = factory.inflate(R.layout.dialog, null);
 
@@ -173,7 +188,7 @@ public class Activity3 extends AppCompatActivity {
             button1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(Activity3.this, Activity2.class);
+                    Intent intent = new Intent(FourCardsActivity.this, LevelActivity.class);
                     startActivity(intent);
                     finish();
                 }
@@ -181,7 +196,7 @@ public class Activity3 extends AppCompatActivity {
             button2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(Activity3.this, Activity4.class);
+                    Intent intent = new Intent(FourCardsActivity.this, SixCardsActivity.class);
                     startActivity(intent);
                     finish();
                 }
@@ -189,7 +204,7 @@ public class Activity3 extends AppCompatActivity {
         }
     }
     public void backButtonPressed(View view) {
-        Intent intent = new Intent(this, Activity2.class);
+        Intent intent = new Intent(this, LevelActivity.class);
         startActivity(intent);
     }
 }

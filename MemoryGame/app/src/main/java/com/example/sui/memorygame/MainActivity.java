@@ -2,10 +2,8 @@ package com.example.sui.memorygame;
 
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -48,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-// Play music funktion
+// Play music function
 
                 initlizeViews();
             }
@@ -68,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void playButtonPressed() {
-        Intent intent = new Intent(this, Activity2.class);
+        Intent intent = new Intent(this, LevelActivity.class);
         startActivity(intent);
     }
 
